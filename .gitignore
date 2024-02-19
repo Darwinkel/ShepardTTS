@@ -167,3 +167,4 @@ current_model/
 screenlog.0*
 deployable.zip
 requirements.txt
+docker-compose.yml

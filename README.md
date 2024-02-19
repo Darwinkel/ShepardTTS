@@ -1,8 +1,10 @@
 # ShepardTTS
 
-[ShepardTTS](https://shepardtts.darwinkel.net) is a fine-tuned [XTTS v2.0.3](https://docs.coqui.ai/en/latest/models/xtts.html) model, trained on paired dialogue/audio samples from the Mass Effect 2 and Mass Effect 3 base games.
+[ShepardTTS](https://shepardtts.darwinkel.net) is a free and open-source fine-tuned [XTTS v2.0.3](https://docs.coqui.ai/en/latest/models/xtts.html) model, trained on paired dialogue/audio samples from the Mass Effect 2 and Mass Effect 3 base games.
 
 Pull requests, feature requests, and discussion are welcome!
+
+If you are a researcher, and you want access to the public ShepardTTS deployment, contact me.
 
 ## History (and other experiments)
 I initially [fine-tuned SpeechT5](https://huggingface.co/learn/audio-course/chapter6/fine-tuning), but the results were disappointing. That model very frequently produced garbage and/or hallucinated output for most voices. Interestingly, it also had a very strong bias towards female speakers. 
@@ -28,8 +30,14 @@ The audio samples and dialogue strings are extremely clean. The audio has a samp
 ## Ethical (and legal) statement
 There are probably copyright issues with a generative model trained on game files. More importantly, I'm not sure how the voice actors feel about their voice being cloned. Do not use ShepardTTS for commercial or harmful purposes. This software is a labor of love built for the Mass Effect fan community.
 
-Due to these legal and ethical issues, I will not distribute the game files nor the model checkpoint at this time. 
-Dump and fine-tune yourself.
+Due to these legal and ethical issues, I will not distribute the game files nor the model checkpoint at this time. Dump and fine-tune yourself.
+
+### Risks
+Voice cloning technology has been around for a couple of years. Hand-picked audio samples with commercial-grade voice models likely produce better audio than ShepardTTS. Furthermore, waveforms produced by this model are easily recognizable as such just by visual inspection, as it always produces (some) characteristic artifacts.
+
+The access to the public deployment is highly restricted, and as such there is no straightforward way to use the system such that it hurts the interests of the original voice actors.
+
+All things considered, this software should not produce additional harm beyond what already exists.
 
 ## License
 The model and its output: [Coqui Public Model License (CPML)](https://coqui.ai/cpml)

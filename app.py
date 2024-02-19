@@ -231,4 +231,4 @@ with gr.Blocks(analytics_enabled=False) as demo:
     )
 
 demo.queue(max_size=10)
-demo.launch(debug=False, show_api=True, share=False)
+demo.launch(debug=False, show_api=True, share=False, auth=("shepard", os.environ["SECRET_KEY"]))
