@@ -7,7 +7,7 @@ from pathlib import Path
 import gradio as gr
 import numpy as np
 import torch
-from torchaudio.io import StreamWriter
+from torchaudio.io import CodecConfig, StreamWriter
 
 import settings
 from app_helpers import description, examples, links
@@ -38,6 +38,7 @@ for file in Path("mean_character_embeddings").glob("*_speaker_embedding.pt"):
 def predict(
     prompt: str,
     character: str,
+    codec_format: str = "ogg",
     top_k: float = 30.0,
     top_p: float = 0.5,
     temperature: float = 0.6,
@@ -82,16 +83,34 @@ def predict(
     for sentence in out["wav"]:
         waveform = torch.cat((waveform, QUARTER_SECOND_PAUSE, sentence, QUARTER_SECOND_PAUSE))
 
-    # Write compressed opus ogg
-    s = StreamWriter(dst=f"{os.environ['GRADIO_EXAMPLES_CACHE']}/output.ogg")
-    s.add_audio_stream(sample_rate=24000, num_channels=1, encoder="opus")
+    base_filename = f"{os.environ['GRADIO_EXAMPLES_CACHE']}/{int(time.time())}_{character}"
+
+    if codec_format == "mp3":
+        # Write compressed mp3
+        filename = f"{base_filename}.mp3"
+        s = StreamWriter(dst=filename)
+        s.add_audio_stream(
+            sample_rate=24000,
+            num_channels=1,
+            encoder="libmp3lame",
+            codec_config=CodecConfig(compression_level=0, qscale=0),
+        )
+
+    else:
+        # Write compressed opus ogg
+        filename = f"{base_filename}.ogg"
+        s = StreamWriter(dst=filename)
+        s.add_audio_stream(
+            sample_rate=24000, num_channels=1, encoder="libopus", codec_config=CodecConfig(compression_level=10)
+        )
+
     with s.open():
         s.write_audio_chunk(0, waveform.unsqueeze(1))
 
     postprocessing_time = time.time() - postprocessing_time
 
     return (
-        f"{os.environ['GRADIO_EXAMPLES_CACHE']}/output.ogg",
+        filename,
         f"Inference time: {inference_time:.4f}s. Postprocessing time: {postprocessing_time:.4f}s.",
     )
 
@@ -115,8 +134,15 @@ with gr.Blocks(analytics_enabled=False) as demo:
                 label="Character",
                 info="Select a reference voice for the synthesised speech.",
                 choices=list(CHARACTER_SPEAKER_EMBEDDINGS.keys()),
-                max_choices=1,
+                multiselect=False,
                 value="ME2_f-player_f-Shepard",
+            )
+
+            format_gr = gr.Radio(
+                label="Format",
+                info="Encode and compress waveform as opus/ogg or mp3?",
+                choices=["ogg", "mp3"],
+                value="ogg",
             )
 
             top_k_gr = gr.Slider(
@@ -193,6 +219,7 @@ with gr.Blocks(analytics_enabled=False) as demo:
         [
             input_text_gr,
             char_gr,
+            format_gr,
             top_p_gr,
             top_p_gr,
             temperature_gr,
