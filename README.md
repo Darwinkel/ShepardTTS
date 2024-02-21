@@ -6,6 +6,9 @@ Pull requests, feature requests, and discussion are welcome!
 
 If you are a researcher, and you want access to the public ShepardTTS deployment, contact me.
 
+## Usage notes
+Most voices perform best when narrating medium-length sentences with medium-length words. They tend to produce garbage and artifacts when confronted with very short words, excessive punctuation, and abbreviations. As a rule of thumb: provide text input such that it could have reasonably occurred in the games. The more out-of-domain (and unnatural) the text input, the lower the chances of a good narration.
+
 ## History (and other experiments)
 I initially [fine-tuned SpeechT5](https://huggingface.co/learn/audio-course/chapter6/fine-tuning), but the results were disappointing. That model very frequently produced garbage and/or hallucinated output for most voices. Interestingly, it also had a very strong bias towards female speakers. 
 
@@ -17,14 +20,12 @@ You can then proceed to train the model, and create character embeddings when it
 The audio samples and dialogue strings are extremely clean. The audio has a sample rate of 24000Hz (downsampled to 22050 for training). The dialogue strings are corrupted in some cases (issue with the Legendary Explorer?).
 
 ## Training 
-- Trained for 12 epochs on a RTX 3060 with 12GB VRAM. Took about 14 hours. Judging from the eval loss, this is roughly the point where it starts overfitting. See `train.py` for the used parameters.
+Trained for 12 epochs on a RTX 3060 with 12GB VRAM. Took about 14 hours. Judging from the eval loss, this is roughly the point where it starts overfitting. See `train.py` for the used parameters.
 
 ## Future work
-- Increase sampling rate to 24000 for training (same as XTTSv2 output - but requires more compute power and results in misalignment between original training checkpoint. Initial results not promising.).
-- More aggressive filtering for both voice embeddings as well as text (there is some text corruption in some samples).
-- Look for hand-picked voice samples (now we just calculate a vague average voice). This should make some voices (such as Liara) much better.
-- [Get into C# and submit a pull request to the Legendary Explorer to batch export audio.](https://github.com/ME3Tweaks/LegendaryExplorer/issues/357)
-- GPU inference with DeepSpeed is ~20x faster (minutes to seconds), but renting GPU's is very expensive. Do we have a generous sponsor in the audience perhaps?
+See [the project board](https://github.com/users/Darwinkel/projects/2).
+
+GPU inference with DeepSpeed is ~20x faster (minutes to seconds), but renting GPU's is very expensive. Do we have a generous sponsor in the audience perhaps?
 
 
 ## Ethical (and legal) statement
