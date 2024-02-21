@@ -2,7 +2,7 @@
 
 [ShepardTTS](https://shepardtts.darwinkel.net) is a free and open-source fine-tuned [XTTS v2.0.3](https://docs.coqui.ai/en/latest/models/xtts.html) model, trained on paired dialogue/audio samples from the Mass Effect 2 and Mass Effect 3 base games.
 
-Pull requests, feature requests, and discussion are welcome!
+Pull requests, feature requests, and discussions are welcome!
 
 If you are a researcher, and you want access to the public ShepardTTS deployment, contact me.
 
