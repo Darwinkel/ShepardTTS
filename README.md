@@ -7,7 +7,11 @@ Pull requests, feature requests, and discussions are welcome!
 If you are a researcher, and you want access to the public ShepardTTS deployment, contact me.
 
 ## Usage notes
-Most voices perform best when narrating medium-length sentences with medium-length words. They tend to produce garbage and artifacts when confronted with very short words, excessive punctuation, and abbreviations. As a rule of thumb: provide text input such that it could have reasonably occurred in the games. The more out-of-domain (and unnatural) the text input, the lower the chances of a good narration.
+Most voices perform best when narrating medium-length sentences with medium-length words. They tend to produce garbage and artifacts when confronted with very short words, excessive punctuation, and abbreviations. As a rule of thumb: provide text input such that it could have reasonably occurred in the games. The more out-of-domain - and unnatural - the text input, the lower the chances of a good narration.
+
+![audio example](/examples/1708512151_ME2_f-player_f-Shepard.ogg)
+
+<audio src="/examples/1708512151_ME2_f-player_f-Shepard.ogg" controls preload></audio>
 
 ## History (and other experiments)
 I initially [fine-tuned SpeechT5](https://huggingface.co/learn/audio-course/chapter6/fine-tuning), but the results were disappointing. That model very frequently produced garbage and/or hallucinated output for most voices. Interestingly, it also had a very strong bias towards female speakers. 
