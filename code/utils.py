@@ -21,7 +21,7 @@ def load_checkpoint():
     model.load_checkpoint(
         config,
         checkpoint_dir=settings.CHECKPOINT_DIR,
-        vocab_path=settings.CHECKPOINT_VOCAB,
+        vocab_path=settings.CHECKPOINT_VOCAB_JSON,
         use_deepspeed=use_deepspeed,
     )
     model.to(settings.DEVICE)
