@@ -1022,12 +1022,12 @@ files = [
 
 [[package]]
 name = "deepspeed"
-version = "0.13.2"
+version = "0.13.3"
 description = "DeepSpeed library"
 optional = false
 python-versions = "*"
 files = [
-    {file = "deepspeed-0.13.2.tar.gz", hash = "sha256:78a8a7ae66b0d3f661224c9d48ed153be0f1a2d5b9be8d0cbfeee1fa6a791995"},
+    {file = "deepspeed-0.13.3.tar.gz", hash = "sha256:94e9390e324429799a74d7b2f30ea6252df5a1e9a95e55f107233ecd04af8291"},
 ]
 
 [package.dependencies]
@@ -1044,10 +1044,10 @@ tqdm = "*"
 
 [package.extras]
 1bit-mpi = ["mpi4py"]
-all = ["accelerate", "autodoc_pydantic", "clang-format (==16.0.2)", "deepspeed-kernels", "diffusers (>=0.25.0)", "docutils (<0.18)", "future", "google", "hjson", "importlib-metadata (>=4)", "lm-eval (==0.3.0)", "mpi4py", "mup", "neural-compressor (==2.1.0)", "packaging", "pre-commit (>=2.20.0)", "protobuf", "psutil", "py-cpuinfo", "pydantic (<2.0.0)", "pytest", "pytest-forked", "pytest-randomly", "pytest-xdist", "recommonmark", "safetensors", "sentencepiece", "sphinx", "sphinx-rtd-theme", "sphinx_rtd_theme", "tabulate", "tensorboard", "torch", "torchvision", "tqdm", "transformers (>=4.32.1)", "triton (==1.0.0)", "triton (==2.1.0)", "triton (>=2.1.0)", "wandb", "xgboost"]
+all = ["accelerate", "autodoc_pydantic", "clang-format (==16.0.2)", "deepspeed-kernels", "diffusers (>=0.25.0)", "docutils (<0.18)", "future", "google", "hjson", "importlib-metadata (>=4)", "lm-eval (==0.3.0)", "mpi4py", "mup", "neural-compressor (==2.1.0)", "packaging", "pre-commit (>=2.20.0)", "protobuf", "psutil", "py-cpuinfo", "pydantic (<2.0.0)", "pytest (<=8.0.0)", "pytest-forked", "pytest-randomly", "pytest-xdist", "recommonmark", "safetensors", "sentencepiece", "sphinx", "sphinx-rtd-theme", "sphinx_rtd_theme", "tabulate", "tensorboard", "torch", "torchvision", "tqdm", "transformers (>=4.32.1)", "triton (==1.0.0)", "triton (==2.1.0)", "triton (>=2.1.0)", "wandb", "xgboost"]
 autotuning = ["tabulate"]
 autotuning-ml = ["hjson", "tabulate", "xgboost"]
-dev = ["accelerate", "clang-format (==16.0.2)", "deepspeed-kernels", "docutils (<0.18)", "future", "importlib-metadata (>=4)", "mup", "pre-commit (>=2.20.0)", "pytest", "pytest-forked", "pytest-randomly", "pytest-xdist", "recommonmark", "sphinx", "sphinx-rtd-theme", "tensorboard", "torchvision", "transformers (>=4.32.1)", "wandb"]
+dev = ["accelerate", "clang-format (==16.0.2)", "deepspeed-kernels", "docutils (<0.18)", "future", "importlib-metadata (>=4)", "mup", "pre-commit (>=2.20.0)", "pytest (<=8.0.0)", "pytest-forked", "pytest-randomly", "pytest-xdist", "recommonmark", "sphinx", "sphinx-rtd-theme", "tensorboard", "torchvision", "transformers (>=4.32.1)", "wandb"]
 inf = ["google", "lm-eval (==0.3.0)", "protobuf", "safetensors", "sentencepiece", "transformers (>=4.32.1)"]
 readthedocs = ["autodoc_pydantic", "docutils (<0.18)", "hjson", "packaging", "psutil", "py-cpuinfo", "pydantic (<2.0.0)", "recommonmark", "sphinx_rtd_theme", "torch", "tqdm"]
 sd = ["diffusers (>=0.25.0)", "triton (>=2.1.0)"]
@@ -6213,4 +6213,4 @@ testing = ["big-O", "jaraco.functools", "jaraco.itertools", "more-itertools", "p
 [metadata]
 lock-version = "2.0"
 python-versions = "^3.11,<3.12"
-content-hash = "ce5c1fedc27e8878c9d62c5364a3d9c60328ab6e9a49db0cb26ee69b476708db"
+content-hash = "3e80140b060f50909740b81ec248c28043b1ff367a2b3b2f6adb59de00d95ba1"
