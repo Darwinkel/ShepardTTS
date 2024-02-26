@@ -77,4 +77,8 @@ examples = [
         "Stand amongst the ashes of a trillion dead souls and ask the ghosts if honor matters.",
         "ME3_m-hench_prothean",
     ],
+    [
+        "Want me to call the Council and hang up on them? For old times' sake.",
+        "ME3_m-global_joker",
+    ],
 ]
