@@ -3,7 +3,6 @@
 from pathlib import Path
 
 import torch
-
 from utils import load_checkpoint
 
 

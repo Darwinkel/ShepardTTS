@@ -1,16 +1,14 @@
 """Gradio web interface for ShepardTTS."""
 
-import os
 import time
 from pathlib import Path
 
 import gradio as gr
 import numpy as np
-import torch
-from torchaudio.io import CodecConfig, StreamWriter
-
 import settings
+import torch
 from app_helpers import description, examples, links
+from torchaudio.io import CodecConfig, StreamWriter
 from utils import load_checkpoint, normalize_line
 
 model = load_checkpoint()
@@ -83,7 +81,7 @@ def predict(
     for sentence in out["wav"]:
         waveform = torch.cat((waveform, QUARTER_SECOND_PAUSE, sentence, QUARTER_SECOND_PAUSE))
 
-    base_filename = f"{os.environ['GRADIO_EXAMPLES_CACHE']}/{int(time.time())}_{character}"
+    base_filename = f"{settings.GRADIO_EXAMPLES_CACHE}/{int(time.time())}_{character}"
 
     if codec_format == "mp3":
         # Write compressed mp3
@@ -231,4 +229,4 @@ with gr.Blocks(analytics_enabled=False) as demo:
     )
 
 demo.queue(max_size=10)
-demo.launch(debug=False, show_api=True, share=False, auth=("shepard", os.environ["SECRET_KEY"]))
+demo.launch(debug=False, show_api=True, share=False, auth=("shepard", settings.SECRET_KEY))

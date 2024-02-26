@@ -5,7 +5,7 @@ WORKDIR /usr/src/app
 RUN apt-get update && apt-get install -y ffmpeg
 
 COPY requirements.txt ./
-COPY code ./
 RUN pip install --no-cache-dir -r requirements.txt
 
+COPY code ./
 CMD [ "python", "./app.py" ]

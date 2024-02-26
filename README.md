@@ -11,6 +11,9 @@ Most voices perform best when narrating medium-length sentences with medium-leng
 
 ![This paragraph is a good example of appropriate text input.](/examples/1708512151_ME2_f-player_f-Shepard.ogg)
 
+## Deployment
+GitHub Actions automatically produces a fresh image on every push to the `main` branch. See `docker-compose.example.yml` on how it can be deployed.
+
 ## History (and other experiments)
 I initially [fine-tuned SpeechT5](https://huggingface.co/learn/audio-course/chapter6/fine-tuning), but the results were disappointing. That model very frequently produced garbage and/or hallucinated output for most voices. Interestingly, it also had a very strong bias towards female speakers. 
 

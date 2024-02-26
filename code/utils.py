@@ -2,12 +2,11 @@
 
 import re
 
+import settings
 from cleantext import clean
 from num2words import num2words
-from TTS.tts.configs.xtts_config import XttsConfig
-
-import settings
 from overrides import ShepardXtts
+from TTS.tts.configs.xtts_config import XttsConfig
 
 
 def load_checkpoint():
