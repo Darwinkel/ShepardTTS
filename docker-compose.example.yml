@@ -7,6 +7,11 @@ services:
       - "1337:1337"
     volumes:
       - ./current_model/:/xtts_model/:ro
+      - ./mean_character_embeddings/:/mean_character_embeddings/:ro
+    cap_drop:
+      - ALL
+    security_opt:
+      - no-new-privileges:true
     environment:
       GRADIO_EXAMPLES_CACHE: "/tmp/"
       GRADIO_ANALYTICS_ENABLED: False

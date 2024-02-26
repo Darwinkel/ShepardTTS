@@ -18,15 +18,15 @@ QUARTER_SECOND_PAUSE = torch.tensor(np.zeros(24000 // 4), dtype=torch.float32)
 # Load speaker embeddings and gpt cond latents into memory for performance (~100mb)
 CHARACTER_SPEAKER_EMBEDDINGS = {}
 CHARACTER_GPT_COND_LATENTS = {}
-for file in Path("mean_character_embeddings").glob("*_speaker_embedding.pt"):
+for file in Path(settings.MEAN_CHARACTER_EMBEDDINGS_PATH).glob("*_speaker_embedding.pt"):
     character = file.stem[:-18]
 
     CHARACTER_SPEAKER_EMBEDDINGS[character] = torch.load(
-        f"mean_character_embeddings/{character}_speaker_embedding.pt",
+        f"{settings.MEAN_CHARACTER_EMBEDDINGS_PATH}/{character}_speaker_embedding.pt",
         map_location=torch.device(settings.DEVICE),
     )
     CHARACTER_GPT_COND_LATENTS[character] = torch.load(
-        f"mean_character_embeddings/{character}_gpt_cond_latent.pt",
+        f"{settings.MEAN_CHARACTER_EMBEDDINGS_PATH}/{character}_gpt_cond_latent.pt",
         map_location=torch.device(settings.DEVICE),
     )
     print(file)
