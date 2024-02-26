@@ -46,7 +46,7 @@ examples = [
         "ME2_m-hench_professor",
     ],
     [
-        "Christian Bible, the Gospel of Mark, chapter five, verse nine. We acknowledge this as an appropriate metaphor. We are Legion, a terminal of the Geth. We will integrate into Normandy.",
+        "Christian Bible, the Gospel of Mark, chapter five, verse nine. We acknowledge this as an appropriate metaphor. We are Legion, a terminal of the geth. We will integrate into Normandy.",
         "ME2_m-hench_geth",
     ],
     [
@@ -54,7 +54,7 @@ examples = [
         "ME2_m-hench_ai",
     ],
     [
-        "The problem is that war isn’t orderly. And the enemy is never predictable. Even the most experienced veteran is going to find themselves in situations they haven't trained for.",
+        "The problem is that war isn't orderly. And the enemy is never predictable. Even the most experienced veteran is going to find themselves in situations they haven't trained for.",
         "ME2_m-cithub_anderson",
     ],
     [
