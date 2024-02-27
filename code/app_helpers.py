@@ -1,5 +1,7 @@
 """Helper functions for ShepardTTS Gradio web interface."""
 
+from __init__ import __version__
+
 title = "ShepardTTS"
 
 description = """
@@ -15,12 +17,12 @@ This server has limited computing power (CPU-bound). Multi-sentence texts can ta
 <br/>
 """
 
-links = """
+links = f"""
 
 |                                 |                                         |
 | ------------------------------- | --------------------------------------- |
 | **Source code and README**      | [GitHub](https://github.com/Darwinkel/ShepardTTS) |
-
+| **Current running version**     | {__version__} |
 
 """
 

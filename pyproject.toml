@@ -53,3 +53,6 @@ strict = true
 ignore_missing_imports = true
 no_implicit_reexport = false
 explicit_package_bases = true
+
+[tool.setuptools_scm]
+version_file = "code/_version.py"

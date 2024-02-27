@@ -168,3 +168,4 @@ screenlog.0*
 deployable.zip
 requirements.txt
 docker-compose.yml
+_version.txt
