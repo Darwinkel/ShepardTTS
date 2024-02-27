@@ -6,13 +6,19 @@ authors = ["Patrick Darwinkel"]
 readme = "README.md"
 packages = [{include = "shepardtts"}]
 
+[tool.poetry-dynamic-versioning]
+enable = true
+vcs = "git"
+style = "pep440"
+metadata = true
+tagged-metadata = true
+dirty = true
+bump = true
+
 # Build configuration
 [build-system]
-requires = ["poetry-core"]
-build-backend = "poetry.core.masonry.api"
-
-[tool.setuptools_scm]
-version_file = "code/_version.py"
+requires = ["poetry-core>=1.0.0", "poetry-dynamic-versioning>=1.0.0,<2.0.0"]
+build-backend = "poetry_dynamic_versioning.backend"
 
 # Poetry dependency configuration
 [tool.poetry.dependencies]

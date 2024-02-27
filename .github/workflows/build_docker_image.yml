@@ -25,16 +25,13 @@ jobs:
         run: curl -sSL https://install.python-poetry.org | python3 -
 
       - name: Install poetry export plugin
-        run: poetry self add poetry-plugin-export
+        run: poetry self add poetry-plugin-export poetry-dynamic-versioning[plugin]
 
       - name: Export requirements
         run: poetry export -o requirements.txt --only main,deploy
 
-      - name: Install setuptools_scm
-        run: pip install --upgrade setuptools setuptools_scm
-
-      - name: Write version file
-        run: python -m setuptools_scm > shepardtts/_version.txt
+      - name: Update version file
+        run: poetry dynamic-versioning
 
       - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v3

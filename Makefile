@@ -11,3 +11,6 @@ quality:
 	make format
 	make check
 	make typing
+
+build:
+	poetry build -f wheel
