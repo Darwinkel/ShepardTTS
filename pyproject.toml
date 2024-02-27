@@ -1,11 +1,20 @@
 [tool.poetry]
 name = "shepardtts"
-version = "0.1.0"
+version = "0.0.1-dev"
 description = "ShepardTTS is a fine-tuned XTTS model, trained on paired dialogue/audio samples from the Mass Effect 2 and Mass Effect 3 base games."
 authors = ["Patrick Darwinkel"]
 readme = "README.md"
-requires-python = ">=3.11"
+packages = [{include = "shepardtts"}]
 
+# Build configuration
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.setuptools_scm]
+version_file = "code/_version.py"
+
+# Poetry dependency configuration
 [tool.poetry.dependencies]
 python = "^3.11,<3.12"
 torch = "2.2.0"
@@ -33,10 +42,7 @@ accelerate = "0.27.2"
 [tool.poetry.group.deploy.dependencies]
 gradio = "4.19.2"
 
-[build-system]
-requires = ["poetry-core"]
-build-backend = "poetry.core.masonry.api"
-
+# Code quality tooling configuration
 [tool.ruff]
 line-length = 120
 target-version = "py311"
@@ -47,13 +53,9 @@ select = ["ALL"]
 fixable = ["ALL"]
 ignore = ["D203", "D212", "COM812", "ISC001"]
 
-
 [tool.mypy]
 python_version = "3.11"
 strict = true
 ignore_missing_imports = true
 no_implicit_reexport = false
 explicit_package_bases = true
-
-[tool.setuptools_scm]
-version_file = "code/_version.py"
