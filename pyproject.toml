@@ -4,6 +4,7 @@ version = "0.1.0"
 description = "ShepardTTS is a fine-tuned XTTS model, trained on paired dialogue/audio samples from the Mass Effect 2 and Mass Effect 3 base games."
 authors = ["Patrick Darwinkel"]
 readme = "README.md"
+requires-python = ">=3.11"
 
 [tool.poetry.dependencies]
 python = "^3.11,<3.12"
