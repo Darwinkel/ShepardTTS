@@ -21,9 +21,7 @@ jobs:
           python-version: 3.11
 
       - name: Install ruff
-        run: |
-          python -m pip install --upgrade pip
-          pip install ruff
+        run: python -m pip install --upgrade pip ruff
 
       - name: Run format
         run: ruff format --check shepardtts
@@ -40,9 +38,7 @@ jobs:
           python-version: 3.11
 
       - name: Install ruff
-        run: |
-          python -m pip install --upgrade pip
-          pip install ruff
+        run: python -m pip install --upgrade pip ruff
 
       - name: Run run linter
         run: ruff check --output-format=github shepardtts
@@ -59,9 +55,7 @@ jobs:
           python-version: 3.11
 
       - name: Install mypy
-        run: |
-          python -m pip install --upgrade pip
-          pip install mypy
+        run: python -m pip install --upgrade pip mypy
 
       - name: Run static type checking
         run: mypy shepardtts/*.py
