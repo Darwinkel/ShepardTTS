@@ -31,7 +31,7 @@ jobs:
         run: poetry export -o requirements.txt --only main,deploy
 
       - name: Install setuptools_scm
-        run: pip install setuptools_scm
+        run: pip install --upgrade setuptools setuptools_scm
 
       - name: Write version file
         run: python -m setuptools_scm > code/_version.txt
