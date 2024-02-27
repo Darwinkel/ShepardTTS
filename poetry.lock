@@ -1022,12 +1022,12 @@ files = [
 
 [[package]]
 name = "deepspeed"
-version = "0.13.3"
+version = "0.13.4"
 description = "DeepSpeed library"
 optional = false
 python-versions = "*"
 files = [
-    {file = "deepspeed-0.13.3.tar.gz", hash = "sha256:94e9390e324429799a74d7b2f30ea6252df5a1e9a95e55f107233ecd04af8291"},
+    {file = "deepspeed-0.13.4.tar.gz", hash = "sha256:48f39753b94f2dc850e7c64021bb213d1fa377b93c66ce9ff9ef4f981770a88d"},
 ]
 
 [package.dependencies]
@@ -6213,4 +6213,4 @@ testing = ["big-O", "jaraco.functools", "jaraco.itertools", "more-itertools", "p
 [metadata]
 lock-version = "2.0"
 python-versions = "^3.11,<3.12"
-content-hash = "3e80140b060f50909740b81ec248c28043b1ff367a2b3b2f6adb59de00d95ba1"
+content-hash = "914ba4dc47fc7c34e101f3a7147608e756e19b7181cb15e869dbab4a6a1a0083"
