@@ -8,11 +8,16 @@ description = """
 
 <br/>
 
-This demo is currently running a fine-tuned version of **XTTS v2.0.3**. <a href="https://huggingface.co/coqui/XTTS-v2">XTTS</a> is a multilingual text-to-speech and voice-cloning model. It has been fine-tuned on game data from Mass Effect 2 and Mass Effect 3. Speaker embeddings are generated from available game samples. See the GitHub repository for more information.
+This demo is currently running a fine-tuned version of **XTTS v2.0.3**.
+<a href="https://huggingface.co/coqui/XTTS-v2">XTTS</a> is a multilingual text-to-speech and voice-cloning model.
+It has been fine-tuned on game data from Mass Effect 2 and Mass Effect 3.
+Speaker embeddings are generated from available game samples.
+See the GitHub repository for more information.
 
 <br/>
 
-This server has limited computing power (CPU-bound). Multi-sentence texts can take up to a minute or more to generate.
+This server has limited computing power (CPU-bound).
+Multi-sentence texts can take up to a minute or more to generate.
 
 <br/>
 """
@@ -40,7 +45,9 @@ examples = [
         "ME2_m-global_illusive_man-nor_illusive_man",
     ],
     [
-        "Worried about my qualifications? I can crush a mech with my biotics or shoot its head off at a hundred yards. Take your pick.",
+        "Worried about my qualifications? "
+        "I can crush a mech with my biotics or shoot its head off at a hundred yards. "
+        "Take your pick.",
         "ME2_m-hench_vixen-procer_miranda",
     ],
     [
@@ -48,7 +55,10 @@ examples = [
         "ME2_m-hench_professor",
     ],
     [
-        "Christian Bible, the Gospel of Mark, chapter five, verse nine. We acknowledge this as an appropriate metaphor. We are Legion, a terminal of the geth. We will integrate into Normandy.",
+        "Christian Bible, the Gospel of Mark, chapter five, verse nine. "
+        "We acknowledge this as an appropriate metaphor. "
+        "We are Legion, a terminal of the geth. "
+        "We will integrate into Normandy.",
         "ME2_m-hench_geth",
     ],
     [
@@ -56,7 +66,9 @@ examples = [
         "ME2_m-hench_ai",
     ],
     [
-        "The problem is that war isn't orderly. And the enemy is never predictable. Even the most experienced veteran is going to find themselves in situations they haven't trained for.",
+        "The problem is that war isn't orderly. "
+        "And the enemy is never predictable. "
+        "Even the most experienced veteran is going to find themselves in situations they haven't trained for.",
         "ME2_m-cithub_anderson",
     ],
     [

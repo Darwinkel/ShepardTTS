@@ -14,6 +14,8 @@ from utils import load_checkpoint, normalize_line
 model = load_checkpoint()
 
 QUARTER_SECOND_PAUSE = torch.tensor(np.zeros(24000 // 4), dtype=torch.float32)
+MIN_PROMPT_LENGTH = 2
+MAX_PROMPT_LENGTH = 2500
 
 # Load speaker embeddings and gpt cond latents into memory for performance (~100mb)
 CHARACTER_SPEAKER_EMBEDDINGS = {}
@@ -44,13 +46,14 @@ def predict(
     repetition_penalty: float = 10.0,
     length_penalty: float = 1.0,
 ) -> tuple[str | None, str | None]:
-    if len(prompt) < 2:
+    """Predicts and outputs a compressed waveform for a given prompt and configuration."""
+    if len(prompt) < MIN_PROMPT_LENGTH:
         gr.Warning("Please give a longer prompt text")
         return (
             None,
             None,
         )
-    if len(prompt) > 2500:
+    if len(prompt) > MAX_PROMPT_LENGTH:
         gr.Warning("Text length limited to 2500 characters for this demo, please try a shorter text.")
         return (
             None,
@@ -125,7 +128,9 @@ with gr.Blocks(analytics_enabled=False) as demo:
             input_text_gr = gr.TextArea(
                 label="Text Prompt",
                 info="Make sure you use proper punctuation.",
-                value="Hi there, I'm a voice from Mass Effect. I can talk as much as you want, provided the input text is split in small to medium length sentences.",
+                value="Hi there, I'm a voice from Mass Effect. "
+                "I can talk as much as you want, "
+                "provided the input text is split in small to medium length sentences.",
             )
 
             char_gr = gr.Dropdown(
@@ -149,7 +154,9 @@ with gr.Blocks(analytics_enabled=False) as demo:
                 maximum=100.0,
                 value=30.0,
                 step=1.0,
-                info="K value used in top-k sampling. [0,inf]. Lower values mean the decoder produces more 'likely' (aka boring) outputs. Defaults to 50.",
+                info="K value used in top-k sampling. [0,inf]. "
+                "Lower values mean the decoder produces more 'likely' (aka boring) outputs. "
+                "Defaults to 50.",
             )
 
             top_p_gr = gr.Slider(
@@ -158,7 +165,9 @@ with gr.Blocks(analytics_enabled=False) as demo:
                 maximum=0.99,
                 value=0.50,
                 step=0.01,
-                info="P value used in nucleus sampling. (0,1). Lower values mean the decoder produces more 'likely' (aka boring) outputs. Defaults to 0.8.",
+                info="P value used in nucleus sampling. (0,1). "
+                "Lower values mean the decoder produces more 'likely' (aka boring) outputs. "
+                "Defaults to 0.8.",
             )
             temperature_gr = gr.Slider(
                 label="Temperature",
@@ -184,7 +193,9 @@ with gr.Blocks(analytics_enabled=False) as demo:
                 maximum=20.0,
                 value=10.0,
                 step=0.1,
-                info="A penalty that prevents the autoregressive decoder from repeating itself during decoding. Can be used to reduce the incidence of long silences or 'uhhhhhhs', etc. Defaults to 10.0.",
+                info="A penalty that prevents the autoregressive decoder from repeating itself during decoding. "
+                "Can be used to reduce the incidence of long silences or 'uhhhhhhs', etc. "
+                "Defaults to 10.0.",
             )
 
             length_penalty_gr = gr.Slider(
@@ -193,7 +204,9 @@ with gr.Blocks(analytics_enabled=False) as demo:
                 maximum=2.0,
                 value=1.0,
                 step=0.1,
-                info="A length penalty applied to the autoregressive decoder. Higher settings causes the model to produce more terse outputs. Defaults to 1.0.",
+                info="A length penalty applied to the autoregressive decoder. "
+                "Higher settings causes the model to produce more terse outputs. "
+                "Defaults to 1.0.",
             )
 
             tts_button = gr.Button("Synthesise", elem_id="send-btn", visible=True)

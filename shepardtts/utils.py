@@ -9,7 +9,8 @@ from overrides import ShepardXtts
 from TTS.tts.configs.xtts_config import XttsConfig
 
 
-def load_checkpoint():
+def load_checkpoint() -> ShepardXtts:
+    """Load a model checkpoint from settings module."""
     use_deepspeed = False
     if settings.DEVICE == "cuda":
         use_deepspeed = True
@@ -29,11 +30,12 @@ def load_checkpoint():
 
 
 NUMBERS_REGEX = re.compile(
-    r"(?:^|(?<=[^\w,.]))[+–-]?(([1-9]\d{0,2}(,\d{3})+(\.\d*)?)|([1-9]\d{0,2}([ .]\d{3})+(,\d*)?)|(\d*?[.,]\d+)|\d+)(?:$|(?=\b))"
+    r"(?:^|(?<=[^\w,.]))[+–-]?(([1-9]\d{0,2}(,\d{3})+(\.\d*)?)|([1-9]\d{0,2}([ .]\d{3})+(,\d*)?)|(\d*?[.,]\d+)|\d+)(?:$|(?=\b))"  # noqa: E501 RUF001
 )
 
 
-def normalize_line(line: str):
+def normalize_line(line: str) -> str:
+    """Normalize a line of text."""
     cleaned = clean(
         text=line,
         fix_unicode=True,  # fix various unicode errors
@@ -53,6 +55,7 @@ def normalize_line(line: str):
     return NUMBERS_REGEX.sub(lambda m: normalize_numbers(m.group()), cleaned)
 
 
-def normalize_numbers(string):
+def normalize_numbers(string: str) -> str:
+    """Normalize numbers in a string."""
     # Required for when a comma is used inside a digit (one occurence in dataset)
-    return num2words(string.replace(",", ""))
+    return str(num2words(string.replace(",", "")))

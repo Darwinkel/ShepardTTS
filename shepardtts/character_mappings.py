@@ -125,6 +125,7 @@ SPEAKER_MAPPINGS = {
 }
 
 
-def get_character(raw):
+def get_character(raw: str) -> str:
+    """Get the character name from an identifier."""
     # Return proper name if found, otherwise return the input
     return SPEAKER_MAPPINGS.get(raw, raw)

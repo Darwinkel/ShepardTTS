@@ -57,7 +57,11 @@ fix = true
 [tool.ruff.lint]
 select = ["ALL"]
 fixable = ["ALL"]
-ignore = ["D203", "D212", "COM812", "ISC001"]
+ignore = ["D203", "D212", "COM812", "ISC001", "T201"]
+
+[tool.ruff.lint.per-file-ignores]
+"app.py" = ["PLR0913"] # Not relevant for Gradio
+"train.py" = ["PTH"] # Fix some other time
 
 [tool.mypy]
 python_version = "3.11"

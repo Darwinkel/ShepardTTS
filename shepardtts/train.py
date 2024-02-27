@@ -31,7 +31,8 @@ OPTIMIZER_WD_ONLY_ON_WEIGHTS = True  # for multi-gpu training please make it Fal
 START_WITH_EVAL = True  # if True it will star with evaluation
 BATCH_SIZE = 1  # set here the batch size
 GRAD_ACUMM_STEPS = 252  # set here the grad accumulation steps
-# Note: we recommend that BATCH_SIZE * GRAD_ACUMM_STEPS need to be at least 252 for more efficient training. You can increase/decrease BATCH_SIZE but then set GRAD_ACUMM_STEPS accordingly.
+# Note: we recommend that BATCH_SIZE * GRAD_ACUMM_STEPS need to be at least 252 for more efficient training.
+# You can increase/decrease BATCH_SIZE but then set GRAD_ACUMM_STEPS accordingly.
 
 # Define here the dataset that you want to use for the fine-tuning on.
 config_dataset = BaseDatasetConfig(
@@ -61,21 +62,22 @@ MEL_NORM_FILE = os.path.join(CHECKPOINTS_OUT_PATH, os.path.basename(MEL_NORM_LIN
 # download DVAE files if needed
 if not os.path.isfile(DVAE_CHECKPOINT) or not os.path.isfile(MEL_NORM_FILE):
     print(" > Downloading DVAE files!")
-    ModelManager._download_model_files([MEL_NORM_LINK, DVAE_CHECKPOINT_LINK], CHECKPOINTS_OUT_PATH, progress_bar=True)
+    ModelManager._download_model_files([MEL_NORM_LINK, DVAE_CHECKPOINT_LINK], CHECKPOINTS_OUT_PATH, progress_bar=True)  # noqa: SLF001
 
 
 # Download XTTS v2.0 checkpoint if needed
 TOKENIZER_FILE_LINK = "https://coqui.gateway.scarf.sh/hf-coqui/XTTS-v2/main/vocab.json"
 XTTS_CHECKPOINT_LINK = "https://coqui.gateway.scarf.sh/hf-coqui/XTTS-v2/main/model.pth"
 
-# XTTS transfer learning parameters: You we need to provide the paths of XTTS model checkpoint that you want to do the fine tuning.
+# XTTS transfer learning parameters:
+# You need to provide the paths of XTTS model checkpoint that you want to do the fine tuning.
 TOKENIZER_FILE = os.path.join(CHECKPOINTS_OUT_PATH, os.path.basename(TOKENIZER_FILE_LINK))  # vocab.json file
 XTTS_CHECKPOINT = os.path.join(CHECKPOINTS_OUT_PATH, os.path.basename(XTTS_CHECKPOINT_LINK))  # model.pth file
 
 # download XTTS v2.0 files if needed
 if not os.path.isfile(TOKENIZER_FILE) or not os.path.isfile(XTTS_CHECKPOINT):
     print(" > Downloading XTTS v2.0 files!")
-    ModelManager._download_model_files(
+    ModelManager._download_model_files(  # noqa: SLF001
         [TOKENIZER_FILE_LINK, XTTS_CHECKPOINT_LINK],
         CHECKPOINTS_OUT_PATH,
         progress_bar=True,
@@ -89,7 +91,8 @@ SPEAKER_REFERENCE = [
 LANGUAGE = config_dataset.language
 
 
-def main():
+def main() -> None:
+    """Run main function."""
     # init args and config
     model_args = GPTArgs(
         max_conditioning_length=132300,  # 6 secs
@@ -135,9 +138,10 @@ def main():
         save_step=10000,
         save_n_checkpoints=1,
         save_checkpoints=True,
-        # target_loss="loss",
+        # target_loss="loss", # noqa: ERA001
         print_eval=True,
-        # Optimizer values like tortoise, pytorch implementation with modifications to not apply WD to non-weight parameters.
+        # Optimizer values like tortoise,
+        # pytorch implementation with modifications to not apply WD to non-weight parameters.
         optimizer="AdamW",
         optimizer_wd_only_on_weights=OPTIMIZER_WD_ONLY_ON_WEIGHTS,
         optimizer_params={"betas": [0.9, 0.96], "eps": 1e-8, "weight_decay": 1e-2},
@@ -151,7 +155,8 @@ def main():
         },
         test_sentences=[
             {
-                "text": "It took me quite a long time to develop a voice, and now that I have it I'm not going to be silent.",
+                "text": "It took me quite a long time to develop a voice, "
+                "and now that I have it I'm not going to be silent.",
                 "speaker_wav": SPEAKER_REFERENCE,
                 "language": LANGUAGE,
             },
@@ -177,7 +182,9 @@ def main():
     # init the trainer and 🚀
     trainer = Trainer(
         TrainerArgs(
-            restore_path=None,  # xtts checkpoint is restored via xtts_checkpoint key so no need of restore it using Trainer restore_path parameter
+            # xtts checkpoint is restored via xtts_checkpoint key,
+            # so no need of restore it using Trainer restore_path parameter
+            restore_path=None,
             skip_train_epoch=False,
             start_with_eval=START_WITH_EVAL,
             grad_accum_steps=GRAD_ACUMM_STEPS,

@@ -1,5 +1,6 @@
 """Create a clean, normalized, unified dataset from game dumps and export it into the ljspeech format."""
 
+from collections.abc import Iterator
 from pathlib import Path
 
 import pandas as pd
@@ -8,7 +9,8 @@ from datasets import Audio, Dataset, concatenate_datasets
 from utils import normalize_line
 
 
-def dataset_from_iterator(path_to_dialogue_dump, path_to_audio, game):
+def dataset_from_iterator(path_to_dialogue_dump: str, path_to_audio: str, game: str) -> Iterator[dict[str, str]]:
+    """Yield examples by cross referencing dialogues and audio files."""
     dialogue_dump_df = pd.read_excel(path_to_dialogue_dump)
 
     audio_files_found = 0
@@ -32,20 +34,20 @@ def dataset_from_iterator(path_to_dialogue_dump, path_to_audio, game):
                 gender = file.stem[-1]
 
                 # Take character from dialogue dump
-                character_from_dialogue = row["Speaker"].values[0]
+                character_from_dialogue = row["Speaker"].values[0]  # noqa: PD011
 
                 # Prefix character with gender
                 probable_character = f"{gender}-"
 
                 # Strip quotes and normalize sentence
-                line = normalize_line(row["Line"].values[0][1:-1])
+                line = normalize_line(row["Line"].values[0][1:-1])  # noqa: PD011
 
                 if game == "ME2":
                     # Replace folder name (minus `s_int`) with empty string,
                     # Remove `en_us_` and `_00xxxxxx_x` from whatever remains
                     character_from_filename = file.stem.replace(file.parts[-2][:-5], "")[6:-11]
 
-                    if character_from_filename == character_from_dialogue or character_from_dialogue == "Owner":
+                    if character_from_dialogue in (character_from_filename, "Owner"):
                         probable_character += character_from_filename
                     else:
                         probable_character += f"{character_from_filename}-{character_from_dialogue}"
@@ -72,12 +74,16 @@ def dataset_from_iterator(path_to_dialogue_dump, path_to_audio, game):
     )
 
 
-def is_valid_sample(example):
+def is_valid_sample(example: dict[str, Dataset]) -> bool:  # noqa: PLR0911
+    """Check if a sample is likely to be valid."""
+    min_line_length = 4
+    min_audio_length = 2
+
     line = example["line"]
     audio_array = example["audio"]["array"]
 
     # Filter empty strings
-    if line == "" or line == "." or line == " " or line == "!" or line == "?" or line == "Aaah!":
+    if line in ("", ".", " ", "!", "?", "Aaah!"):
         print("Invalid line")
         print(example)
         return False
@@ -89,7 +95,7 @@ def is_valid_sample(example):
         return False
 
     # Filter too short lines (but allow Yes.)
-    if len(line) < 4:
+    if len(line) < min_line_length:
         print("Line too short")
         print(example)
         return False
@@ -107,7 +113,7 @@ def is_valid_sample(example):
         return False
 
     # Audio array is waaaay to short
-    if len(audio_array) < 2:
+    if len(audio_array) < min_audio_length:
         print("Too short audio array")
         print(example)
         return False
@@ -115,7 +121,8 @@ def is_valid_sample(example):
     return True
 
 
-def main():
+def main() -> None:
+    """Run main function."""
     me2_dataset = Dataset.from_generator(
         dataset_from_iterator,
         gen_kwargs={
@@ -144,7 +151,7 @@ def main():
     complete_dataset_with_valid_audio = complete_dataset_with_audio.filter(is_valid_sample, num_proc=11)
 
     # Write to ljspeech format
-    with open("ljspeech/metadata.csv", "w") as file:
+    with open("ljspeech/metadata.csv", "w") as file:  # noqa: PTH123
         for sample in complete_dataset_with_valid_audio:
             filename_without_extension = f"{sample['game']}_{sample['character']}_{sample['string_id']}"
             normalized_text = sample["line"]

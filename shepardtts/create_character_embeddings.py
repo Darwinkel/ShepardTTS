@@ -6,11 +6,13 @@ import torch
 from utils import load_checkpoint
 
 
-def main():
-    mapped_unique_characters = {}
+def main() -> None:
+    """Run main function."""
+    mapped_unique_characters: dict[str, list[Path]] = {}
 
     for file in Path("ljspeech/wavs").glob("*.wav"):
-        # character = get_character(file.stem[:-7]) # NOTE: Let's not unify things for now. More options for users.
+        # NOTE: Let's not unify things for now. More options for users.
+        # character = get_character(file.stem[:-7]) # noqa: ERA001
         character = file.stem[:-7]
         print(file)
         print(character)

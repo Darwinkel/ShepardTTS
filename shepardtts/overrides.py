@@ -1,3 +1,6 @@
+# because this is an override:
+# ruff: noqa
+# type: ignore
 """Override some Xtts definitions."""
 
 import torch
