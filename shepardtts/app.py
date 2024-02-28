@@ -50,7 +50,7 @@ def get_speaker_embeddings() -> tuple[dict[str, torch.Tensor], dict[str, torch.T
 def predict(
     prompt: str,
     character: str,
-    language: str,
+    language: str = "en",
     codec_format: str = "ogg",
     top_k: float = 30.0,
     top_p: float = 0.5,
@@ -86,10 +86,10 @@ def predict(
     )
 
     out = MODEL.inference(
-        normalize_line(prompt),
-        language,
-        character_gpt_cond_latent,
-        character_speaker_embedding,
+        text=normalize_line(prompt),
+        language=language,
+        gpt_cond_latent=character_gpt_cond_latent,
+        speaker_embedding=character_speaker_embedding,
         top_k=int(top_k),
         top_p=float(top_p),
         temperature=float(temperature),
