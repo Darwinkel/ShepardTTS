@@ -5,7 +5,8 @@ import time
 import numpy as np
 import torch
 from torchaudio.io import StreamWriter
-from utils import load_checkpoint, normalize_line
+
+from .utils import load_checkpoint, normalize_line
 
 model = load_checkpoint()
 

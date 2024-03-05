@@ -37,6 +37,8 @@ deepspeed = "0.13.4"
 ruff = "0.2.2"
 mypy = "1.8.0"
 poetry-plugin-export = "1.6.0"
+pytest = "8.0.2"
+pytest-cov = "4.1.0"
 
 [tool.poetry.group.train.dependencies]
 trainer = "0.0.36"
@@ -62,10 +64,9 @@ ignore = ["D203", "D212", "COM812", "ISC001", "T201"]
 [tool.ruff.lint.per-file-ignores]
 "app.py" = ["PLR0913"] # Not relevant for Gradio
 "train.py" = ["PTH"] # Fix some other time
+"test_*.py" = ["S101"] # Allow assert in tests
 
 [tool.mypy]
 python_version = "3.11"
 strict = true
 ignore_missing_imports = true
-no_implicit_reexport = false
-explicit_package_bases = true

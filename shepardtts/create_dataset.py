@@ -6,7 +6,8 @@ from pathlib import Path
 import pandas as pd
 import soundfile
 from datasets import Audio, Dataset, concatenate_datasets
-from utils import normalize_line
+
+from .utils import normalize_line
 
 
 def dataset_from_iterator(path_to_dialogue_dump: str, path_to_audio: str, game: str) -> Iterator[dict[str, str]]:

@@ -1,0 +1,38 @@
+name: Run pytest in the poetry environment
+
+on:
+  pull_request:
+    branches:
+      - "**"
+  push:
+    branches:
+      - "main"
+
+jobs:
+  pytest-cov:
+    runs-on: ubuntu-22.04
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Install poetry
+        run: pipx install poetry
+
+      - name: Set up Python 3.11
+        uses: actions/setup-python@v5
+        with:
+          python-version: 3.11
+          cache: 'poetry'
+
+      - name: Install dev dependencies
+        run: poetry install
+
+      - name: Run pytest
+        run: make test
+
+      - name: Pytest coverage comment
+        uses: MishaKav/pytest-coverage-comment@v1.1.51
+        with:
+          pytest-coverage-path: ./coverage.xml
+          junitxml-path: ./junit/test-results.xml

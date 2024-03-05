@@ -1,6 +1,6 @@
 """Helper functions for ShepardTTS Gradio web interface."""
 
-from __version__ import __version__
+from .__version__ import __version__
 
 title = "ShepardTTS"
 

@@ -14,3 +14,6 @@ quality:
 
 build:
 	poetry build -f wheel
+
+test:
+	poetry run pytest --doctest-modules --junitxml=junit/test-results.xml --cov=shepardtts --cov-report=xml --cov-report=html tests

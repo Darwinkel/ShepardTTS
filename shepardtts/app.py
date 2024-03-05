@@ -5,11 +5,12 @@ from pathlib import Path
 
 import gradio as gr
 import numpy as np
-import settings
 import torch
-from app_helpers import description, examples, links
 from torchaudio.io import CodecConfig, StreamWriter
-from utils import load_checkpoint, normalize_line
+
+from . import settings
+from .app_helpers import description, examples, links
+from .utils import load_checkpoint, normalize_line
 
 MODEL = load_checkpoint()
 
