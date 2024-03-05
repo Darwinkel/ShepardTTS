@@ -4,10 +4,10 @@ import re
 
 from cleantext import clean
 from num2words import num2words
-from overrides import ShepardXtts
 from TTS.tts.configs.xtts_config import XttsConfig
 
 from . import settings
+from .overrides import ShepardXtts  # type: ignore[attr-defined]
 
 
 def load_checkpoint() -> ShepardXtts:

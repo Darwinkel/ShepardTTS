@@ -1,4 +1,5 @@
 """Contains some universal settings."""
+
 import os
 
 import torch
