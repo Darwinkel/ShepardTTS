@@ -16,23 +16,20 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
+      - name: Install poetry
+        run: pipx install poetry
+
       - name: Set up Python 3.11
         uses: actions/setup-python@v5
         with:
           python-version: 3.11
-          cache: 'pip'
-
-      - name: Install poetry export plugin
-        run: python -m pip install --upgrade pip poetry-plugin-export
-
-      - name: Export dev requirements
-        run: poetry export -o requirements.txt --only dev
+          cache: 'poetry'
 
       - name: Install dev dependencies
-        run: pip install -r requirements.txt
+        run: poetry install --only dev
 
       - name: Run format
-        run: ruff format --check shepardtts
+        run: poetry run ruff format --check shepardtts
 
   ruff-check:
     runs-on: ubuntu-22.04
@@ -41,23 +38,20 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
+      - name: Install poetry
+        run: pipx install poetry
+
       - name: Set up Python 3.11
         uses: actions/setup-python@v5
         with:
           python-version: 3.11
-          cache: 'pip'
-
-      - name: Install poetry export plugin
-        run: python -m pip install --upgrade pip poetry-plugin-export
-
-      - name: Export dev requirements
-        run: poetry export -o requirements.txt --only dev
+          cache: 'poetry'
 
       - name: Install dev dependencies
-        run: pip install -r requirements.txt
+        run: poetry install --only dev
 
       - name: Run run linter
-        run: ruff check --output-format=github shepardtts
+        run: poetry run ruff check --output-format=github shepardtts
 
   mypy:
     runs-on: ubuntu-22.04
@@ -66,20 +60,17 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
+      - name: Install poetry
+        run: pipx install poetry
+
       - name: Set up Python 3.11
         uses: actions/setup-python@v5
         with:
           python-version: 3.11
-          cache: 'pip'
-
-      - name: Install poetry export plugin
-        run: python -m pip install --upgrade pip poetry-plugin-export
-
-      - name: Export dev requirements
-        run: poetry export -o requirements.txt --only dev
+          cache: 'poetry'
 
       - name: Install dev dependencies
-        run: pip install -r requirements.txt
+        run: poetry install --only dev
 
       - name: Run static type checking
-        run: mypy shepardtts/*.py
+        run: poetry run mypy shepardtts/*.py
