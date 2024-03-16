@@ -169,10 +169,11 @@ def main() -> None:
 
                 language_gr = gr.Dropdown(
                     label="Language",
-                    info="Select the language to be used by the model.",
+                    info="Select the language to be used by the model. "
+                    "The prompt should be written in the language selected here.",
                     choices=language2id().keys(),
                     multiselect=False,
-                    value="en",
+                    value="English",
                 )
 
                 format_gr = gr.Radio(
