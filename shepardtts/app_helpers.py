@@ -20,6 +20,16 @@ This server has limited computing power (CPU-bound).
 Multi-sentence texts can take up to a minute or more to generate.
 
 <br/>
+
+Most voices perform best when narrating medium-length sentences with medium-length words.
+They tend to produce garbage and artifacts when confronted with very short words and sentences,
+ excessive punctuation, and abbreviations.
+Sentences which are too long tend to cause hallucinations.
+As a rule of thumb: provide text input such that it could have reasonably occurred in the games.
+The more out-of-domain - and unnatural - the text input, the lower the chances of a good narration.
+
+<br/>
+
 """
 
 links = f"""

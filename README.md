@@ -7,7 +7,7 @@ Pull requests, feature requests, and discussions are welcome!
 If you are a researcher, and you want access to the public ShepardTTS deployment, contact me.
 
 ## Usage notes
-Most voices perform best when narrating medium-length sentences with medium-length words. They tend to produce garbage and artifacts when confronted with very short words, excessive punctuation, and abbreviations. As a rule of thumb: provide text input such that it could have reasonably occurred in the games. The more out-of-domain - and unnatural - the text input, the lower the chances of a good narration.
+Most voices perform best when narrating medium-length sentences with medium-length words. They tend to produce garbage and artifacts when confronted with very short words and sentences, excessive punctuation, and abbreviations. Sentences which are too long tend to cause hallucinations. As a rule of thumb: provide text input such that it could have reasonably occurred in the games. The more out-of-domain - and unnatural - the text input, the lower the chances of a good narration.
 
 ![This paragraph is a good example of appropriate text input.](/examples/1708512151_ME2_f-player_f-Shepard.ogg)
 
