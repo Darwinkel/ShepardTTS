@@ -60,3 +60,26 @@ def normalize_numbers(string: str) -> str:
     """Normalize numbers in a string."""
     # Required for when a comma is used inside a digit (one occurence in dataset)
     return str(num2words(string.replace(",", "")))
+
+
+def language2id() -> dict[str, str]:
+    """Convert language choice to its Xttsv2 code."""
+    return {
+        "English": "en",
+        "Spanish": "es",
+        "French": "fr",
+        "German": "de",
+        "Italian": "it",
+        "Portugese": "pt",
+        "Polish": "pl",
+        "Turkish": "tr",
+        "Russian": "ru",
+        "Dutch": "nl",
+        "Czech": "cs",
+        "Arabic": "ar",
+        "Chinese": "zh-cn",
+        "Japanese": "ja",
+        "Korean": "ko",
+        "Hungarian": "hu",
+        "Hindi": "hi",
+    }

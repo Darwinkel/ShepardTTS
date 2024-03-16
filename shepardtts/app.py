@@ -10,7 +10,7 @@ from torchaudio.io import CodecConfig, StreamWriter
 
 from . import settings
 from .app_helpers import description, examples, links
-from .utils import load_checkpoint, normalize_line
+from .utils import language2id, load_checkpoint, normalize_line
 
 MODEL = load_checkpoint()
 
@@ -51,7 +51,7 @@ def get_speaker_embeddings() -> tuple[dict[str, torch.Tensor], dict[str, torch.T
 def predict(
     prompt: str,
     character: str,
-    language: str = "en",
+    language: str = "English",
     codec_format: str = "ogg",
     top_k: float = 30.0,
     top_p: float = 0.5,
@@ -88,7 +88,7 @@ def predict(
 
     out = MODEL.inference(
         text=normalize_line(prompt),
-        language=language,
+        language=language2id()[language],
         gpt_cond_latent=character_gpt_cond_latent,
         speaker_embedding=character_speaker_embedding,
         top_k=int(top_k),
@@ -170,25 +170,7 @@ def main() -> None:
                 language_gr = gr.Dropdown(
                     label="Language",
                     info="Select the language to be used by the model.",
-                    choices=[
-                        "en",
-                        "es",
-                        "fr",
-                        "de",
-                        "it",
-                        "pt",
-                        "pl",
-                        "tr",
-                        "ru",
-                        "nl",
-                        "cs",
-                        "ar",
-                        "zh-cn",
-                        "ja",
-                        "ko",
-                        "hu",
-                        "hi",
-                    ],
+                    choices=language2id().keys(),
                     multiselect=False,
                     value="en",
                 )
