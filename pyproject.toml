@@ -36,7 +36,7 @@ deepspeed = "0.14.0"
 [tool.poetry.group.dev.dependencies]
 ruff = "0.3.3"
 mypy = "1.9.0"
-poetry-plugin-export = "1.6.0"
+poetry-plugin-export = "1.7.0"
 pytest = "8.1.1"
 pytest-cov = "4.1.0"
 
