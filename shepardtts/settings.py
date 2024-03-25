@@ -14,4 +14,4 @@ MEAN_CHARACTER_EMBEDDINGS_PATH = os.environ.get("MEAN_CHARACTER_EMBEDDINGS_PATH"
 GRADIO_EXAMPLES_CACHE = os.environ.get("GRADIO_EXAMPLES_CACHE", "/tmp/")  # noqa: S108
 SECRET_KEY = os.environ.get("SECRET_KEY", "changeme")
 
-DUMMY = os.environ.get("DUMMY", False) # If set, do not load the model
+DUMMY = os.environ.get("DUMMY", False)  # If set, do not load the model
