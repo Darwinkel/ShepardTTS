@@ -166,6 +166,7 @@ ljspeech*/
 run/
 out_individual/
 current_model/
+gradio_cached_examples/
 screenlog.0*
 deployable.zip
 requirements.txt

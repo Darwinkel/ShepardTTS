@@ -12,7 +12,7 @@ from . import settings
 from .app_helpers import description, examples, links
 from .utils import language2id, load_checkpoint, normalize_line
 
-MODEL = load_checkpoint()
+MODEL = None if settings.DUMMY else load_checkpoint()
 
 QUARTER_SECOND_PAUSE = torch.tensor(np.zeros(24000 // 4), dtype=torch.float32)
 MIN_PROMPT_LENGTH = 2
@@ -76,29 +76,32 @@ def predict(
 
     total_time = time.time()
 
-    character_gpt_cond_latent = torch.load(
-        f"{settings.MEAN_CHARACTER_EMBEDDINGS_PATH}/{character}_gpt_cond_latent.pt",
-        map_location=torch.device(settings.DEVICE),
-    )
+    if MODEL:
+        character_gpt_cond_latent = torch.load(
+            f"{settings.MEAN_CHARACTER_EMBEDDINGS_PATH}/{character}_gpt_cond_latent.pt",
+            map_location=torch.device(settings.DEVICE),
+        )
 
-    character_speaker_embedding = torch.load(
-        f"{settings.MEAN_CHARACTER_EMBEDDINGS_PATH}/{character}_speaker_embedding.pt",
-        map_location=torch.device(settings.DEVICE),
-    )
+        character_speaker_embedding = torch.load(
+            f"{settings.MEAN_CHARACTER_EMBEDDINGS_PATH}/{character}_speaker_embedding.pt",
+            map_location=torch.device(settings.DEVICE),
+        )
 
-    out = MODEL.inference(
-        text=normalize_line(prompt),
-        language=language2id()[language],
-        gpt_cond_latent=character_gpt_cond_latent,
-        speaker_embedding=character_speaker_embedding,
-        top_k=int(top_k),
-        top_p=float(top_p),
-        temperature=float(temperature),
-        speed=float(speed),
-        repetition_penalty=float(repetition_penalty),
-        length_penalty=float(length_penalty),
-        enable_text_splitting=True,
-    )
+        out = MODEL.inference(
+            text=normalize_line(prompt),
+            language=language2id()[language],
+            gpt_cond_latent=character_gpt_cond_latent,
+            speaker_embedding=character_speaker_embedding,
+            top_k=int(top_k),
+            top_p=float(top_p),
+            temperature=float(temperature),
+            speed=float(speed),
+            repetition_penalty=float(repetition_penalty),
+            length_penalty=float(length_penalty),
+            enable_text_splitting=True,
+        )
+    else:
+        out = {"wav": [torch.tensor([])]}
 
     inference_time = time.time() - total_time
     postprocessing_time = time.time()
