@@ -91,6 +91,7 @@ examples = [
     [
         "I enjoy the sight of humans on their knees. That is a joke.",
         "25_ME2-m_hench_ai-endgm2_huddle_03a_d_dlg",
+        # 27_ME3-m_Owner-norhen_edi_investigate_d_dlg
     ],
     [
         "The problem is that war isn't orderly. "
@@ -113,7 +114,8 @@ examples = [
     ],
     [
         "I spent two years mourning you. So if we're going to try this, I need to know that you're always coming back.",
-        "58_ME3-m_hench_liara-cat002_monastery_objects_b_dlg",
+        "121_ME2-m_liara-twrhub_main_contact_d_dlg",
+        # 58_ME3-m_hench_liara-cat002_monastery_objects_b_dlg
     ],
     [
         "That assassin should be embarrassed. A terminally ill drell kept him from reaching his target.",

@@ -175,7 +175,7 @@ def main() -> None:
                     info="Select a reference voice for the synthesised speech.",
                     choices=get_available_speaker_embeddings(),
                     multiselect=False,
-                    value="31_ME2-f_player_f_Shepard-twrasa_pinnacle_assassin_d_dlg",
+                    value="46_ME2-f_player_f_Shepard-twrhub_main_contact_d_dlg",
                 )
 
                 language_gr = gr.Dropdown(
