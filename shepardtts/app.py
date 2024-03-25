@@ -17,6 +17,7 @@ MODEL = None if settings.DUMMY else load_checkpoint()
 QUARTER_SECOND_PAUSE = torch.tensor(np.zeros(24000 // 4), dtype=torch.float32)
 MIN_PROMPT_LENGTH = 2
 MAX_PROMPT_LENGTH = 2500
+MIN_AMOUNT_OF_SAMPLES = 3
 
 
 def get_available_speaker_embeddings() -> list[str]:
@@ -24,7 +25,14 @@ def get_available_speaker_embeddings() -> list[str]:
     available_speaker_embeddings = []
     for file in Path(settings.MEAN_CHARACTER_EMBEDDINGS_PATH).glob("*_speaker_embedding.pt"):
         character = file.stem[:-18]
-        available_speaker_embeddings.append(character)
+        no_samples = int(character.split("_")[0])
+
+        # Only keep embeddings which have 3 or more samples
+        if no_samples >= MIN_AMOUNT_OF_SAMPLES:
+            available_speaker_embeddings.append(character)
+
+    # Sort descending by amount of samples it is based on
+    available_speaker_embeddings.sort(key=lambda x: int(x.split("_")[0]), reverse=True)
 
     return available_speaker_embeddings
 
@@ -167,7 +175,7 @@ def main() -> None:
                     info="Select a reference voice for the synthesised speech.",
                     choices=get_available_speaker_embeddings(),
                     multiselect=False,
-                    value="ME2_f-player_f-Shepard",
+                    value="31_ME2-f_player_f_Shepard-twrasa_pinnacle_assassin_d_dlg",
                 )
 
                 language_gr = gr.Dropdown(
