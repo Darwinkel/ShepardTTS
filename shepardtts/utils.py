@@ -12,7 +12,9 @@ from .overrides import ShepardXtts  # type: ignore[attr-defined]
 
 def load_checkpoint() -> ShepardXtts:
     """Load a model checkpoint from settings module."""
-    use_deepspeed = True
+    use_deepspeed = False
+    if settings.DEVICE == "cuda":
+        use_deepspeed = True
 
     print(f"Loading model on {settings.DEVICE}. DeepSpeed is {use_deepspeed}.")
     config = XttsConfig()
