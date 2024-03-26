@@ -1341,13 +1341,13 @@ files = [
 
 [[package]]
 name = "filelock"
-version = "3.13.2"
+version = "3.13.3"
 description = "A platform independent file lock."
 optional = false
 python-versions = ">=3.8"
 files = [
-    {file = "filelock-3.13.2-py3-none-any.whl", hash = "sha256:e4c33bc026ace328551af557d4d34f59566c98acd4ed66c13b4335f114f04f7a"},
-    {file = "filelock-3.13.2.tar.gz", hash = "sha256:9e2106260b5f65600a31bc503721e3db7e64598bb406ebc5921aeaafe441ba34"},
+    {file = "filelock-3.13.3-py3-none-any.whl", hash = "sha256:5ffa845303983e7a0b7ae17636509bc97997d58afeafa72fb141a17b152284cb"},
+    {file = "filelock-3.13.3.tar.gz", hash = "sha256:a79895a25bbefdf55d1a2a0a80968f7dbb28edcd6d4234a0afb3f37ecde4b546"},
 ]
 
 [package.extras]
@@ -1597,13 +1597,13 @@ nltk = "*"
 
 [[package]]
 name = "gradio"
-version = "4.21.0"
+version = "4.23.0"
 description = "Python library for easily interacting with trained machine learning models"
 optional = false
 python-versions = ">=3.8"
 files = [
-    {file = "gradio-4.21.0-py3-none-any.whl", hash = "sha256:521376440e4d5347f48798a15439497910041db4a522187fd8e3807a909c4a8e"},
-    {file = "gradio-4.21.0.tar.gz", hash = "sha256:81acbfbf87d07d472889e14c696a3da09acc6f1abd1d7e3d7f1a963e7b727363"},
+    {file = "gradio-4.23.0-py3-none-any.whl", hash = "sha256:a5be2485f967fed83b82395b345caee28dfd15cdfe7a487b5817f31803981b5a"},
+    {file = "gradio-4.23.0.tar.gz", hash = "sha256:f75772a5316e4492e49f3e52aaa9f7d9325b7d2b15594ba50fcabbf169ecd166"},
 ]
 
 [package.dependencies]
@@ -1611,7 +1611,7 @@ aiofiles = ">=22.0,<24.0"
 altair = ">=4.2.0,<6.0"
 fastapi = "*"
 ffmpy = "*"
-gradio-client = "0.12.0"
+gradio-client = "0.14.0"
 httpx = ">=0.24.1"
 huggingface-hub = ">=0.19.3"
 importlib-resources = ">=1.3,<7.0"
@@ -1627,25 +1627,25 @@ pydantic = ">=2.0"
 pydub = "*"
 python-multipart = ">=0.0.9"
 pyyaml = ">=5.0,<7.0"
-ruff = ">=0.2.2"
+ruff = {version = ">=0.2.2", markers = "sys_platform != \"emscripten\""}
 semantic-version = ">=2.0,<3.0"
 tomlkit = "0.12.0"
 typer = {version = ">=0.9,<1.0", extras = ["all"]}
 typing-extensions = ">=4.0,<5.0"
-uvicorn = ">=0.14.0"
+uvicorn = {version = ">=0.14.0", markers = "sys_platform != \"emscripten\""}
 
 [package.extras]
 oauth = ["authlib", "itsdangerous"]
 
 [[package]]
 name = "gradio-client"
-version = "0.12.0"
+version = "0.14.0"
 description = "Python library for easily interacting with trained machine learning models"
 optional = false
 python-versions = ">=3.8"
 files = [
-    {file = "gradio_client-0.12.0-py3-none-any.whl", hash = "sha256:ead1d3016cd42e9275cf62dd3227ab4472d4093da1a1c6c3c0fe6ca516e9d31f"},
-    {file = "gradio_client-0.12.0.tar.gz", hash = "sha256:7a7e3406829a176153ba1a67f1e1779c2e897d775c7f70f3aeb7e7b2e1ce906b"},
+    {file = "gradio_client-0.14.0-py3-none-any.whl", hash = "sha256:fdce4ecabc1d06d40bffd18923c9710b021d012edba8a1f851bc109eb9ee443e"},
+    {file = "gradio_client-0.14.0.tar.gz", hash = "sha256:18be8d5fb6468729f19547b39d89b66ec9e775d0c5ce9666cc940f11ab1a519c"},
 ]
 
 [package.dependencies]
@@ -2638,7 +2638,6 @@ files = [
     {file = "msgpack-1.0.8-cp39-cp39-musllinux_1_1_x86_64.whl", hash = "sha256:5fbb160554e319f7b22ecf530a80a3ff496d38e8e07ae763b9e82fadfe96f273"},
     {file = "msgpack-1.0.8-cp39-cp39-win32.whl", hash = "sha256:f9af38a89b6a5c04b7d18c492c8ccf2aee7048aff1ce8437c4683bb5a1df893d"},
     {file = "msgpack-1.0.8-cp39-cp39-win_amd64.whl", hash = "sha256:ed59dd52075f8fc91da6053b12e8c89e37aa043f8986efd89e61fae69dc1b011"},
-    {file = "msgpack-1.0.8-py3-none-any.whl", hash = "sha256:24f727df1e20b9876fa6e95f840a2a2651e34c0ad147676356f4bf5fbb0206ca"},
     {file = "msgpack-1.0.8.tar.gz", hash = "sha256:95c02b0e27e706e48d0e5426d1710ca78e0f0628d6e89d5b5a5b91a5f12274f3"},
 ]
 
@@ -3488,13 +3487,13 @@ files = [
 
 [[package]]
 name = "poetry-plugin-export"
-version = "1.7.0"
+version = "1.7.1"
 description = "Poetry plugin to export the dependencies to various formats"
 optional = false
 python-versions = ">=3.8,<4.0"
 files = [
-    {file = "poetry_plugin_export-1.7.0-py3-none-any.whl", hash = "sha256:2283b28e0209f9f9598c6fe44f30586ec91329ea1558f908708261e0516bf427"},
-    {file = "poetry_plugin_export-1.7.0.tar.gz", hash = "sha256:e73f207fc0e08c2f59ead82cbe39ef259b351a318d5c0bddcec13990bcd324a7"},
+    {file = "poetry_plugin_export-1.7.1-py3-none-any.whl", hash = "sha256:b2258e53ae0d369a73806f957ed0e726eb95c571a0ce8b1f273da686528cc1da"},
+    {file = "poetry_plugin_export-1.7.1.tar.gz", hash = "sha256:cf62cfb6218a904290ba6db3bc1a24aa076d10f81c48c6e48b2ded430131e22e"},
 ]
 
 [package.dependencies]
@@ -6333,4 +6332,4 @@ testing = ["big-O", "jaraco.functools", "jaraco.itertools", "more-itertools", "p
 [metadata]
 lock-version = "2.0"
 python-versions = "^3.11,<3.12"
-content-hash = "f12521498209ae3be5dfb2a7255111e7fa55038f31feb0e5b770099ee5874f10"
+content-hash = "4d8148606edd7cb9f9030ece485dd34ccb80f23802dbc7e8e134ca15243678dc"

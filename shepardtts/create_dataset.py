@@ -5,6 +5,7 @@ from pathlib import Path
 
 import pandas as pd
 import soundfile
+
 from datasets import Audio, Dataset, concatenate_datasets
 
 from .utils import normalize_line
@@ -37,8 +38,11 @@ def dataset_from_iterator(path_to_dialogue_dump: str, path_to_audio: str, game: 
                 # Take character from dialogue dump
                 character_from_dialogue = row["Speaker"].values[0]  # noqa: PD011
 
+                # Take conversation from dialogue dump
+                conversation = row["Conversation"].values[0]  # noqa: PD011
+
                 # Prefix character with gender
-                probable_character = f"{gender}-"
+                probable_character = f"{gender}_"
 
                 # Strip quotes and normalize sentence
                 line = normalize_line(row["Line"].values[0][1:-1])  # noqa: PD011
@@ -51,7 +55,7 @@ def dataset_from_iterator(path_to_dialogue_dump: str, path_to_audio: str, game: 
                     if character_from_dialogue in (character_from_filename, "Owner"):
                         probable_character += character_from_filename
                     else:
-                        probable_character += f"{character_from_filename}-{character_from_dialogue}"
+                        probable_character += f"{character_from_filename}_{character_from_dialogue}"
 
                 elif game == "ME3":
                     # Take character from dialogue dump
@@ -62,6 +66,7 @@ def dataset_from_iterator(path_to_dialogue_dump: str, path_to_audio: str, game: 
                     "game": game,
                     "string_id": string_id,
                     "character": probable_character,
+                    "conversation": conversation,
                     "line": line,
                     "audio": str(file),
                 }
@@ -142,7 +147,7 @@ def main() -> None:
     )
 
     # Sort by line to get a good view of multiple speakers for the same line
-    complete_dataset = concatenate_datasets([me2_dataset, me3_dataset]).sort(["line", "character"])
+    complete_dataset = concatenate_datasets([me2_dataset, me3_dataset]).sort(["line", "character", "conversation"])
 
     # Original sampling rate: 24000
     # SpeechT5 requires 16000, xttsv2 requires 22050, and cast to mono just to be safe
@@ -154,7 +159,9 @@ def main() -> None:
     # Write to ljspeech format
     with open("ljspeech/metadata.csv", "w") as file:  # noqa: PTH123
         for sample in complete_dataset_with_valid_audio:
-            filename_without_extension = f"{sample['game']}_{sample['character']}_{sample['string_id']}"
+            filename_without_extension = (
+                f"{sample['game']}-{sample['character']}-{sample['conversation']}-{sample['string_id']}"
+            )
             normalized_text = sample["line"]
             soundfile.write(
                 f"ljspeech/wavs/{filename_without_extension}.wav",
