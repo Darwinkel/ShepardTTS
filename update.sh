@@ -10,4 +10,5 @@ then
     docker compose stop
     docker compose down
     docker compose up -d
+    docker image prune -f # Warning: may also remove some of your other old images 
 fi
