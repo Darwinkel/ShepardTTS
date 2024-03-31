@@ -135,7 +135,7 @@ examples = [
         "By the Code, I will serve you, Shepard. Your choices are my choices. "
         "Your morals are my morals. "
         "Your wishes are my code.",
-        "45_ME2-m_hench_mystic-normw_loyalty_02_h_dlg",
+        "34_ME2-m_hench_mystic-normw_loyalty_02_h_dlg",
         # 33_ME2-m_hench_mystic-normw_relationship_03_h_dlg
         # 45_ME2-m_hench_mystic-normw_loyalty_01_h_dlg
         # 49_ME3-m_Owner-citprs_samara_d_dlg
