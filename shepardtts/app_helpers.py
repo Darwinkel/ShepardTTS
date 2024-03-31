@@ -131,4 +131,44 @@ examples = [
         "78_ME3-m_Owner-nor_joker_bridge_d_dlg",
         # 8_ME3-m_global_joker-cat003_nor_warning_v_dlg
     ],
+    [
+        "By the Code, I will serve you, Shepard. Your choices are my choices. "
+        "Your morals are my morals. "
+        "Your wishes are my code.",
+        "45_ME2-m_hench_mystic-normw_loyalty_02_h_dlg",
+        # 33_ME2-m_hench_mystic-normw_relationship_03_h_dlg
+        # 45_ME2-m_hench_mystic-normw_loyalty_01_h_dlg
+        # 49_ME3-m_Owner-citprs_samara_d_dlg
+    ],
+    [
+        "I wanted to travel the stars, tending the wounds of tough soldiers with piercing eyes and sensitive souls. "
+        "Turns out military life isn't quite as romantic as I'd imagined.",
+        "17_ME3-m_Owner-cithub_doctor_recruit_d_dlg",
+        # 55_ME2-m_nor_doctor-nor_doctor_d_dlg
+    ],
+    [
+        "If there was ever a reason I studied psychology, it was to help people at a time like this."
+        "153_ME2-m_nor_yeoman-nor_yeoman_d_dlg",
+        # 22_ME2-m_nor_yeoman-nor_yeoman_a_dlg
+    ],
+    [
+        "You'll have to make him scream a little. He's not going to tell you everything just 'cause you ask."
+        "42_ME3-m_Owner-citwrd_rp1_bailey_d_dlg",
+        # 20_ME3-m_global_bailey-cat003_wrapup_bailey_d_dlg
+        # 22_ME3-m_Owner-citwrd_rp1_bailey_ph2_d_dlg
+        # 18_ME3-m_global_bailey-cat003_csec_baileylogin_d_dlg
+        # 18_ME3-m_Owner-citwrd_aria3_bailey_d_dlg
+    ],
+    [
+        "We finally get out here, and the final frontier was already settled. "
+        "And the residents don't even seem impressed by the view. Or the dangers."
+        "35_ME2-m_horcr1_kaidan-horcr1_kaidan_end_d_dlg",
+        # 11_ME3-m_hench_kaidan-cat002_enter_building_m_dlg
+    ],
+    [
+        "I can't tell the aliens from the animals." "17_ME3-m_hench_ashley-cat002_monastery_objects_b_dlg",
+        # 35_ME2-m_horcr1_ashley-horcr1_ash_end_d_dlg
+        # 52_ME3-m_Owner-citprs_ash_char_moment_m_dlg
+        # 31_ME3-m_Owner-citprs_ash_talk1_d_dlg
+    ],
 ]

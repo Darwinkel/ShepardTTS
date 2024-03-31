@@ -269,6 +269,7 @@ def main() -> None:
                 outputs=[audio_gr, out_text_gr],
                 fn=predict,
                 cache_examples=True,
+                examples_per_page=30,
             )
 
         tts_button.click(
