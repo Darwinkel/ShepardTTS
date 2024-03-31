@@ -147,12 +147,12 @@ examples = [
         # 55_ME2-m_nor_doctor-nor_doctor_d_dlg
     ],
     [
-        "If there was ever a reason I studied psychology, it was to help people at a time like this."
+        "If there was ever a reason I studied psychology, it was to help people at a time like this.",
         "153_ME2-m_nor_yeoman-nor_yeoman_d_dlg",
         # 22_ME2-m_nor_yeoman-nor_yeoman_a_dlg
     ],
     [
-        "You'll have to make him scream a little. He's not going to tell you everything just 'cause you ask."
+        "You'll have to make him scream a little. He's not going to tell you everything just 'cause you ask.",
         "42_ME3-m_Owner-citwrd_rp1_bailey_d_dlg",
         # 20_ME3-m_global_bailey-cat003_wrapup_bailey_d_dlg
         # 22_ME3-m_Owner-citwrd_rp1_bailey_ph2_d_dlg
@@ -161,12 +161,13 @@ examples = [
     ],
     [
         "We finally get out here, and the final frontier was already settled. "
-        "And the residents don't even seem impressed by the view. Or the dangers."
+        "And the residents don't even seem impressed by the view. Or the dangers.",
         "35_ME2-m_horcr1_kaidan-horcr1_kaidan_end_d_dlg",
         # 11_ME3-m_hench_kaidan-cat002_enter_building_m_dlg
     ],
     [
-        "I can't tell the aliens from the animals." "17_ME3-m_hench_ashley-cat002_monastery_objects_b_dlg",
+        "I can't tell the aliens from the animals.",
+        "17_ME3-m_hench_ashley-cat002_monastery_objects_b_dlg",
         # 35_ME2-m_horcr1_ashley-horcr1_ash_end_d_dlg
         # 52_ME3-m_Owner-citprs_ash_char_moment_m_dlg
         # 31_ME3-m_Owner-citprs_ash_talk1_d_dlg
