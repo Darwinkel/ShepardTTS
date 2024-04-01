@@ -1598,13 +1598,13 @@ nltk = "*"
 
 [[package]]
 name = "gradio"
-version = "4.23.0"
+version = "4.24.0"
 description = "Python library for easily interacting with trained machine learning models"
 optional = false
 python-versions = ">=3.8"
 files = [
-    {file = "gradio-4.23.0-py3-none-any.whl", hash = "sha256:a5be2485f967fed83b82395b345caee28dfd15cdfe7a487b5817f31803981b5a"},
-    {file = "gradio-4.23.0.tar.gz", hash = "sha256:f75772a5316e4492e49f3e52aaa9f7d9325b7d2b15594ba50fcabbf169ecd166"},
+    {file = "gradio-4.24.0-py3-none-any.whl", hash = "sha256:63c95c515b66e7df5a2a94f287269a9bca3c3b6e52cbafd140bb13dd7a841827"},
+    {file = "gradio-4.24.0.tar.gz", hash = "sha256:1c14360e39f66aafea78d176e73b4efd60ee4e5fbbb0054ae325724343ca0856"},
 ]
 
 [package.dependencies]
@@ -1631,7 +1631,7 @@ pyyaml = ">=5.0,<7.0"
 ruff = {version = ">=0.2.2", markers = "sys_platform != \"emscripten\""}
 semantic-version = ">=2.0,<3.0"
 tomlkit = "0.12.0"
-typer = {version = ">=0.9,<1.0", extras = ["all"]}
+typer = {version = ">=0.9,<1.0", extras = ["all"], markers = "sys_platform != \"emscripten\""}
 typing-extensions = ">=4.0,<5.0"
 uvicorn = {version = ">=0.14.0", markers = "sys_platform != \"emscripten\""}
 
@@ -2639,7 +2639,6 @@ files = [
     {file = "msgpack-1.0.8-cp39-cp39-musllinux_1_1_x86_64.whl", hash = "sha256:5fbb160554e319f7b22ecf530a80a3ff496d38e8e07ae763b9e82fadfe96f273"},
     {file = "msgpack-1.0.8-cp39-cp39-win32.whl", hash = "sha256:f9af38a89b6a5c04b7d18c492c8ccf2aee7048aff1ce8437c4683bb5a1df893d"},
     {file = "msgpack-1.0.8-cp39-cp39-win_amd64.whl", hash = "sha256:ed59dd52075f8fc91da6053b12e8c89e37aa043f8986efd89e61fae69dc1b011"},
-    {file = "msgpack-1.0.8-py3-none-any.whl", hash = "sha256:24f727df1e20b9876fa6e95f840a2a2651e34c0ad147676356f4bf5fbb0206ca"},
     {file = "msgpack-1.0.8.tar.gz", hash = "sha256:95c02b0e27e706e48d0e5426d1710ca78e0f0628d6e89d5b5a5b91a5f12274f3"},
 ]
 
@@ -6335,4 +6334,4 @@ testing = ["big-O", "jaraco.functools", "jaraco.itertools", "more-itertools", "p
 [metadata]
 lock-version = "2.0"
 python-versions = "^3.11,<3.12"
-content-hash = "060326f9f4653a43096e17546f4828e0317d7697812ba02f6fabe08969f2b0b0"
+content-hash = "ebdbaa8ede83a9abd08013a97e9d92b4edb6f83594606381ff7522fdd5d903be"

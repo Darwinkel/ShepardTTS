@@ -48,7 +48,7 @@ soundfile = "0.12.1"
 accelerate = "0.28.0"
 
 [tool.poetry.group.deploy.dependencies]
-gradio = "4.23.0"
+gradio = "4.24.0"
 
 # Code quality tooling configuration
 [tool.ruff]
