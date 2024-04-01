@@ -166,7 +166,8 @@ examples = [
         # 11_ME3-m_hench_kaidan-cat002_enter_building_m_dlg
     ],
     [
-        "I can't tell the aliens from the animals.",
+        'Why is it whenever someone says "with all due respect" they really mean "kiss my ass"? '
+        "Anyway, I can't tell the aliens from the animals.",
         "17_ME3-m_hench_ashley-cat002_monastery_objects_b_dlg",
         # 35_ME2-m_horcr1_ashley-horcr1_ash_end_d_dlg
         # 52_ME3-m_Owner-citprs_ash_char_moment_m_dlg
