@@ -45,7 +45,8 @@ links = f"""
 examples = [
     [
         "I'm Commander Shepard, and this is my favorite store on the Citadel.",
-        "46_ME2-f_player_f_Shepard-twrhub_main_contact_d_dlg",
+        "73_ME2-f_player_f_Shepard-nor_yeoman_d_dlg",
+        # 46_ME2-f_player_f_Shepard-twrhub_main_contact_d_dlg
         # 31_ME2-f_player_f_Shepard-twrasa_pinnacle_assassin_d_dlg
         # 35_ME2-f_player_f_Shepard-omgpra_mordin_d_dlg
         # 38_ME2-f_player_f_Shepard-norcv_starter_h_dlg
