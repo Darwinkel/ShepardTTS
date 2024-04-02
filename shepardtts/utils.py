@@ -2,6 +2,7 @@
 
 import re
 
+import torch
 from cleantext import clean
 from num2words import num2words
 from TTS.tts.configs.xtts_config import XttsConfig
@@ -27,6 +28,12 @@ def load_checkpoint() -> ShepardXtts:
         use_deepspeed=use_deepspeed,
     )
     model.to(settings.DEVICE)
+
+    if settings.DEVICE == "cpu":
+        import intel_extension_for_pytorch as ipex
+        model = ipex.optimize(model, weights_prepack=False)
+        model = torch.compile(model, backend="ipex")
+
     return model
 
 
