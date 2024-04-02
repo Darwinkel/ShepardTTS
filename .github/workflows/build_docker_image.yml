@@ -34,7 +34,7 @@ jobs:
         run: poetry self add poetry-plugin-export poetry-dynamic-versioning[plugin]
 
       - name: Export requirements
-        run: poetry export -o requirements.txt --only main,deploy
+        run: poetry export -o requirements.txt --only main,deploy,cpu
 
       - name: Update version file
         run: poetry dynamic-versioning
