@@ -33,7 +33,7 @@ def load_checkpoint() -> ShepardXtts:
     if settings.DEVICE == "cpu":
         import intel_extension_for_pytorch as ipex
 
-        model = ipex.optimize(model, weights_prepack=False, dtype=torch.half)
+        model = ipex.optimize(model, weights_prepack=False)
         model = torch.compile(model, backend="ipex")
 
     return model
