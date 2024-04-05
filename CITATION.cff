@@ -1,0 +1,21 @@
+cff-version: 1.2.0
+title: ShepardTTS
+message: >-
+  If you use this software, please cite it using the
+  metadata from this file.
+type: software
+authors:
+  - given-names: Patrick
+    family-names: Darwinkel
+    orcid: 'https://orcid.org/0009-0009-6604-1175'
+identifiers:
+  - type: url
+    value: 'https://github.com/Darwinkel/ShepardTTS'
+    description: Source code
+abstract: >-
+  ShepardTTS is a free and open-source fine-tuned XTTS
+  v2.0.3 model, trained on paired dialogue/audio samples
+  from the Mass Effect 2 and Mass Effect 3 base games. It is
+  a multilingual and multispeaker model, and can make all of
+  our beloved characters come to life.
+license: GPL-3.0
