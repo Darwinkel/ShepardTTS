@@ -52,7 +52,7 @@ intel-extension-for-pytorch  = {version = "^2.2.0+cpu", source = "torch-intel"}
 oneccl_bind_pt  = {version = "^2.2.0+cpu", source = "torch-intel"}
 
 [tool.poetry.group.dev.dependencies]
-ruff = "0.3.5"
+ruff = "0.4.3"
 mypy = "1.9.0"
 poetry-plugin-export = "1.7.1"
 pytest = "8.1.1"
