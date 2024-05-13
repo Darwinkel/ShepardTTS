@@ -13,13 +13,13 @@ files = [
 
 [[package]]
 name = "accelerate"
-version = "0.28.0"
+version = "0.30.1"
 description = "Accelerate"
 optional = false
 python-versions = ">=3.8.0"
 files = [
-    {file = "accelerate-0.28.0-py3-none-any.whl", hash = "sha256:8ae25f8a8dc4cf12283842c469113836300545fb0dfa46fef331fb0a2ac8b421"},
-    {file = "accelerate-0.28.0.tar.gz", hash = "sha256:32019a49f4b3a85cc179ac4e38e9e2971f1a997dee026be0512816499464c4d5"},
+    {file = "accelerate-0.30.1-py3-none-any.whl", hash = "sha256:8dd4edd532a4dac72558c5fe6fe8cb70d0c8ec9e8733f48db97d51ee41cbe763"},
+    {file = "accelerate-0.30.1.tar.gz", hash = "sha256:96779c618889646b86dc928c9e55e86e50a7ccab59e1692e22096481977ae682"},
 ]
 
 [package.dependencies]
@@ -32,14 +32,15 @@ safetensors = ">=0.3.1"
 torch = ">=1.10.0"
 
 [package.extras]
-dev = ["bitsandbytes", "black (>=23.1,<24.0)", "datasets", "deepspeed (<0.13.0)", "evaluate", "hf-doc-builder (>=0.3.0)", "parameterized", "pytest (>=7.2.0,<=8.0.0)", "pytest-subtests", "pytest-xdist", "rich", "ruff (>=0.2.1,<0.3.0)", "scikit-learn", "scipy", "timm", "torchpippy (>=0.2.0)", "tqdm", "transformers"]
+deepspeed = ["deepspeed (<=0.14.0)"]
+dev = ["bitsandbytes", "black (>=23.1,<24.0)", "datasets", "diffusers", "evaluate", "hf-doc-builder (>=0.3.0)", "parameterized", "pytest (>=7.2.0,<=8.0.0)", "pytest-subtests", "pytest-xdist", "rich", "ruff (>=0.2.1,<0.3.0)", "scikit-learn", "scipy", "timm", "torchpippy (>=0.2.0)", "tqdm", "transformers"]
 quality = ["black (>=23.1,<24.0)", "hf-doc-builder (>=0.3.0)", "ruff (>=0.2.1,<0.3.0)"]
 rich = ["rich"]
 sagemaker = ["sagemaker"]
-test-dev = ["bitsandbytes", "datasets", "deepspeed (<0.13.0)", "evaluate", "scikit-learn", "scipy", "timm", "torchpippy (>=0.2.0)", "tqdm", "transformers"]
+test-dev = ["bitsandbytes", "datasets", "diffusers", "evaluate", "scikit-learn", "scipy", "timm", "torchpippy (>=0.2.0)", "tqdm", "transformers"]
 test-prod = ["parameterized", "pytest (>=7.2.0,<=8.0.0)", "pytest-subtests", "pytest-xdist"]
 test-trackers = ["comet-ml", "dvclive", "tensorboard", "wandb"]
-testing = ["bitsandbytes", "datasets", "deepspeed (<0.13.0)", "evaluate", "parameterized", "pytest (>=7.2.0,<=8.0.0)", "pytest-subtests", "pytest-xdist", "scikit-learn", "scipy", "timm", "torchpippy (>=0.2.0)", "tqdm", "transformers"]
+testing = ["bitsandbytes", "datasets", "diffusers", "evaluate", "parameterized", "pytest (>=7.2.0,<=8.0.0)", "pytest-subtests", "pytest-xdist", "scikit-learn", "scipy", "timm", "torchpippy (>=0.2.0)", "tqdm", "transformers"]
 
 [[package]]
 name = "aiofiles"
@@ -2023,10 +2024,10 @@ description = "Intel® Extension for PyTorch*"
 optional = false
 python-versions = "*"
 files = [
-    {file = "intel_extension_for_pytorch-2.2.0+cpu-cp310-cp310-linux_x86_64.whl", hash = "sha256:8dc0efe0c2d729201a067b9060eb8ef2736ac3c1f4e2491c0e3da2c7efb05b6c"},
-    {file = "intel_extension_for_pytorch-2.2.0+cpu-cp311-cp311-linux_x86_64.whl", hash = "sha256:298050a2178bf0025205cdd88a275e81069c1640ae64ab3dd7de5cb31bdb965f"},
-    {file = "intel_extension_for_pytorch-2.2.0+cpu-cp38-cp38-linux_x86_64.whl", hash = "sha256:951ea215fe36d9429e2dc3740b660bd4abcbb4c095b1628d1a6f26f826fb240e"},
-    {file = "intel_extension_for_pytorch-2.2.0+cpu-cp39-cp39-linux_x86_64.whl", hash = "sha256:21ee6a9a8059c6932fe862b8c107ab2f00f152a580afd43c9a421d1a847661c2"},
+    {file = "intel_extension_for_pytorch-2.2.0+cpu-cp310-cp310-linux_x86_64.whl", hash = "sha256:425f91bbc54a212cc0335590a36c4bc2d58f5e9c848f7dff6a3f27696bd51cb4"},
+    {file = "intel_extension_for_pytorch-2.2.0+cpu-cp311-cp311-linux_x86_64.whl", hash = "sha256:1342ad086be48c8127ad901591cff31ad41d3af8d4976f7c8d42a2625b198e92"},
+    {file = "intel_extension_for_pytorch-2.2.0+cpu-cp38-cp38-linux_x86_64.whl", hash = "sha256:9516e6d4814317eeff183a69c0b41ffcf5b0780202dd2506a1ad15730bd313cd"},
+    {file = "intel_extension_for_pytorch-2.2.0+cpu-cp39-cp39-linux_x86_64.whl", hash = "sha256:4b8f32b06f288f193f91fb80fdfa76ac4dded634001150cb72b48d15690ba3e0"},
 ]
 
 [package.dependencies]
@@ -2664,7 +2665,6 @@ files = [
     {file = "msgpack-1.0.8-cp39-cp39-musllinux_1_1_x86_64.whl", hash = "sha256:5fbb160554e319f7b22ecf530a80a3ff496d38e8e07ae763b9e82fadfe96f273"},
     {file = "msgpack-1.0.8-cp39-cp39-win32.whl", hash = "sha256:f9af38a89b6a5c04b7d18c492c8ccf2aee7048aff1ce8437c4683bb5a1df893d"},
     {file = "msgpack-1.0.8-cp39-cp39-win_amd64.whl", hash = "sha256:ed59dd52075f8fc91da6053b12e8c89e37aa043f8986efd89e61fae69dc1b011"},
-    {file = "msgpack-1.0.8-py3-none-any.whl", hash = "sha256:24f727df1e20b9876fa6e95f840a2a2651e34c0ad147676356f4bf5fbb0206ca"},
     {file = "msgpack-1.0.8.tar.gz", hash = "sha256:95c02b0e27e706e48d0e5426d1710ca78e0f0628d6e89d5b5a5b91a5f12274f3"},
 ]
 
@@ -6200,4 +6200,4 @@ testing = ["big-O", "jaraco.functools", "jaraco.itertools", "more-itertools", "p
 [metadata]
 lock-version = "2.0"
 python-versions = "^3.11,<3.12"
-content-hash = "9fbdb60297fd6ed1520d07691a516a8c9ba0e8d7f23ded95d53dcf2d2770fdcb"
+content-hash = "48725ab17e7b753b7301b8d0a5457681800ce1babd3a2b1a76a29ec27ae790b8"
