@@ -3243,24 +3243,6 @@ files = [
 ]
 
 [[package]]
-name = "oneccl-bind-pt"
-version = "2.3.0+cpu"
-description = ""
-optional = false
-python-versions = "*"
-files = [
-    {file = "oneccl_bind_pt-2.3.0+cpu-cp310-cp310-linux_x86_64.whl", hash = "sha256:adc4b4886bb7f834de6d295bd992d64702eb87c47de9a91393f3e301fc0e9bdf"},
-    {file = "oneccl_bind_pt-2.3.0+cpu-cp311-cp311-linux_x86_64.whl", hash = "sha256:3c79021e2740adf67285041d5aeb76cda560bfd11742e599978039b57172df67"},
-    {file = "oneccl_bind_pt-2.3.0+cpu-cp38-cp38-linux_x86_64.whl", hash = "sha256:80c42b9429d28c4f8abfb2172a96b6d86a7b936531e394a63c2971ff3488e2d0"},
-    {file = "oneccl_bind_pt-2.3.0+cpu-cp39-cp39-linux_x86_64.whl", hash = "sha256:4d05a079996793323dd97bd03fff07896d504047e580d13f708e4b3b552331fd"},
-]
-
-[package.source]
-type = "legacy"
-url = "https://pytorch-extension.intel.com/release-whl/stable/cpu/us"
-reference = "torch-intel"
-
-[[package]]
 name = "openpyxl"
 version = "3.1.2"
 description = "A Python library to read/write Excel 2010 xlsx/xlsm files"
@@ -6281,4 +6263,4 @@ testing = ["big-O", "jaraco.functools", "jaraco.itertools", "more-itertools", "p
 [metadata]
 lock-version = "2.0"
 python-versions = "^3.11,<3.13"
-content-hash = "ab239eba4867fc70a16d0abfa265e92e5ed76738ec8f1dd98a67a6f99e007451"
+content-hash = "563f55167dc762a3ced1a0d728f00cd21dd1b0ab3b404ead84c765f0ac38bbae"
