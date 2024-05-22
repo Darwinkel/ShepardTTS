@@ -53,13 +53,13 @@ oneccl_bind_pt  = {version = "^2.3.0+cpu", source = "torch-intel"}
 
 [tool.poetry.group.dev.dependencies]
 ruff = "0.4.4"
-mypy = "1.9.0"
-poetry-plugin-export = "1.7.1"
-pytest = "8.1.1"
+mypy = "1.10.0"
+poetry-plugin-export = "1.8.0"
+pytest = "8.2.1"
 pytest-cov = "5.0.0"
 
 [tool.poetry.group.train.dependencies]
-coqui-tts-trainer = "0.1.0" # Py3.12 fork
+coqui-tts-trainer = "0.1.1" # Py3.12 fork
 openpyxl = "3.1.2"
 datasets = "2.19.1"
 soundfile = "0.12.1"
