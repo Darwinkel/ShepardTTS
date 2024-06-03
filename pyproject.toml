@@ -61,7 +61,7 @@ pytest-cov = "5.0.0"
 [tool.poetry.group.train.dependencies]
 coqui-tts-trainer = "0.1.1" # Py3.12 fork
 openpyxl = "3.1.2"
-datasets = "2.19.1"
+datasets = "2.19.2"
 soundfile = "0.12.1"
 accelerate = "0.30.1"
 
